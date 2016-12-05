@@ -1,0 +1,64 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* INDEX______________________________________
+
+01. GENERAL STYLES
+02. NAVIGATION
+03. FOOTER
+04. TYPOGRAPHY
+05. HOME
+06. SUB PAGES
+07. MEDIA QUERIES
+
+____________________________________________*/
+
+
+/* -- 01. GENERAL STYLES ------------------------------------ */
+
+img, a {border:0;}
+#wrapper{ background-color:#FFF;}
+.default-wrapper{ background-color:#FFF; min-height:450px; color:#FFF;}
+
+body{ background-color:#FFFFFF; font-family: 'Open Sans', sans-serif;}
+
+.myhover:hover .myhover-menu {
+	   display: block;
+	}
+
+/* -- 02. NAVIGATION ------------------------------------ */
+
+
+/* -- 03. FOOTER ------------------------------------ */
+
+
+/* -- 04. TYPOGRAPHY ------------------------------------ */
+
+
+/* -- 05. HOME ------------------------------------ */
+
+
+/* -- 06. SUB PAGES ------------------------------------ */
+
+
+/* -- 07. MEDIA QUERIES ------------------------------------ */
+
+@media (max-width: 480px) {
+
+}
+
+@media (max-width: 767px) {
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+@media (min-width: 1200px) {
+
+}

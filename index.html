@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en"><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<link rel="shortcut icon" href="images/favicon.ico" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Title</title>
+<!-- InstanceEndEditable -->
+
+<!-- InstanceBeginEditable name="metadescription" -->
+<meta property="og:description" name="Description" content="Description"/>
+<meta property="og:url" content="http://www.url-here.com/" />
+<meta property="og:title" content="Title" /> 
+<meta property="og:type" content="website" /> 
+<!-- InstanceEndEditable -->
+
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="js/plugins/html5shiv.js"></script>
+  <script src="js/plugins/respond.min.js"></script>
+<![endif]-->
+    
+<!-- Google Analytics -->
+<script type="text/javascript">
+        
+   var _gaq = _gaq || [];
+   _gaq.push(['_setAccount', 'UA - ADD NEW UA # IN BETWEEN QUOTES']);
+   _gaq.push(['_trackPageview']);
+        
+   (function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+   })();
+        
+</script>
+<!-- end -->
+    
+<!-- InstanceBeginEditable name="head" -->
+
+<style>
+.inline {
+    display:inline-block;
+}
+</style>
+
+<!-- InstanceEndEditable -->
+
+</head>
+
+<body>
+<div id="wrapper">
+
+<!-- Header -->
+
+<div class="header container">
+ <div class="row ">
+ 
+  <div class="col-sm-12 col-md-12">
+  
+  <!--NAVIGATION-->
+  
+  </div>
+   
+ </div>
+</div>
+
+<!-- header end -->
+
+
+
+
+<!-- InstanceBeginEditable name="mainContent" -->
+
+<div class="default-wrapper">
+  <div class="container">
+	<div class="row">
+     
+      <div class="col-sm-12 col-md-12">
+
+        <button type="button" class="btn btn-primary" onclick="generate()">Generate Word</button>
+        <br><br>
+
+        <span class="word-results">
+
+        </span>
+
+      </div>
+   
+	</div>
+  </div>
+</div>
+
+<!-- InstanceEndEditable -->
+
+
+
+
+
+<!-- Footer -->
+<div class="footer-wrapper">
+ <div class="container">
+  <div class="row "> 
+ 
+    <div class="col-sm-12 col-md-12">&nbsp;</div>
+  
+  </div>
+ </div>
+</div><!-- footer end -->
+
+
+</div><!-- wrapper end -->
+
+<!-- Bootstrap Framework -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href="css/theme.css" rel="stylesheet">
+
+<!--WOW.JS, ANIMATE.CSS 
+<link href="../css/animate.css" rel="stylesheet" type="text/css">
+<script src="../js/plugins/wow.min.js"></script>
+<script>
+      new WOW().init();
+</script>
+-->
+
+<!-- Google Font -->
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic" rel="stylesheet" type="text/css">
+
+<!-- Font Awesome 
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/plugins/essentials.js"></script>
+
+<!-- InstanceBeginEditable name="footer" -->
+
+<script>
+function generate(){
+  var dataString = "l=1";  
+  $.ajax({  
+    type: "POST",  
+    url: "inc/generate_word.php",  
+    data: dataString
+  })
+  .done(function(data) {   
+    //alert(data); 
+    $('.word-results').html(data);
+  })
+}
+
+function check(i){
+  var guess = '';
+  $(".guess-box").each(function(index) {
+    guess = guess + $(this).val();
+  });  
+  var dataString = "i="+i+"&guess="+guess;  
+  $.ajax({  
+    type: "POST",  
+    url: "inc/check_word.php",  
+    data: dataString
+  })
+  .done(function(data) {   
+    //alert(data); 
+    $('.check-results').html(data);
+  })
+}
+
+
+function nextTab(id){
+  var max = $("#"+id).attr("maxlength");
+  if ($("#"+id).val.length == max){
+    var n = parseInt(id);
+    n++;
+    $("#"+n).focus();
+  }
+}
+
+
+</script>
+
+<!-- InstanceEndEditable -->
+
+
+
+
+</body>
+<!-- InstanceEnd --></html>
