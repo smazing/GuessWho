@@ -13,6 +13,8 @@ if(isset($_POST['i'])){
 
 function checkWord($i,$guess){
 	
+	$guess = strtolower($guess);
+
 	$w = new word_row();
 	$w->select($i);
 
